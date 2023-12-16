@@ -9,8 +9,8 @@
     <div class="d-none d-md-block col-md-4 col-xl-4 left-wrapper">
       <div class="card rounded">
         <div class="card-body">
-          <div class="d-flex align-items-center justify-content-between mb-2">
-            <div class="d-flex align-items-center">
+          <div class="mb-2">
+            <div class="text-center">
                 <div class="mb-3">
                     <img class="rounded-circle" src="{{(!$profile->photo)? url('assets/images/no-image.png') : url('assets/profile-photos/'.$profile->photo)}}" alt="" width="100" height="100">
                 </div>													
@@ -19,9 +19,6 @@
                 </div>
             </div>
           </div>
-          <p class="mt-3">
-            Hi! I'm Amiah the Senior UI Designer at NobleUI. We hope you enjoy the design and quality of Social.
-          </p>
           <div class="mt-3">
             <label class="tx-11 fw-bolder mb-0 text-uppercase">Joined:</label>
             <p class="text-muted">{{date_format($profile->created_at, 'F j, Y')}}</p>
