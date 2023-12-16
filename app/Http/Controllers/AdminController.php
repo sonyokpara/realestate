@@ -16,7 +16,7 @@ class AdminController extends Controller
      /**
      * Display the login view.
      */
-    public function create(): View
+    public function create()
     {
         return view('auth.login');
     }
@@ -55,5 +55,31 @@ class AdminController extends Controller
         $profile = User::find($id);
         
         return view('admin.profile', compact('profile'));
+    }
+
+    /**
+     * Update Admin Profile
+     */
+    public function updateProfile(Request $request) {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+
+        if($request->file('photo')){
+            $file = $request->file('photo');
+            $ext = $file->getClientOriginalExtension();
+            $filename = uniqid().'.'.$ext;
+            $file->move(public_path('assets/profile-photos/'), $filename);
+            $user->photo = $filename;
+        }
+
+        $user->save();
+
+        return redirect()->route('admin.profile');
     }
 }

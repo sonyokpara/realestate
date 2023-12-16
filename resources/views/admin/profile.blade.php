@@ -3,64 +3,21 @@
 @section('title', 'Admin Profile')
 
 @section('content')
-  {{-- <div class="row">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="position-relative">
-          <figure class="overflow-hidden mb-0 d-flex justify-content-center">
-            <img src="../../../assets/images/others/profile-cover.jpg"class="rounded-top" alt="profile cover">
-          </figure>
-          <div class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
-            <div>
-              <img class="wd-70 rounded-circle" src="../../../assets/images/faces/face1.jpg" alt="profile">
-              <span class="h4 ms-3 text-dark">Amiah Burton</span>
-            </div>
-            <div class="d-none d-md-block">
-              <button class="btn btn-primary btn-icon-text">
-                <i data-feather="edit" class="btn-icon-prepend"></i> Edit profile
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center p-3 rounded-bottom">
-          <ul class="d-flex align-items-center m-0 p-0">
-            <li class="d-flex align-items-center active">
-              <i class="me-1 icon-md text-primary" data-feather="columns"></i>
-              <a class="pt-1px d-none d-md-block text-primary" href="#">Timeline</a>
-            </li>
-            <li class="ms-3 ps-3 border-start d-flex align-items-center">
-              <i class="me-1 icon-md" data-feather="user"></i>
-              <a class="pt-1px d-none d-md-block text-body" href="#">About</a>
-            </li>
-            <li class="ms-3 ps-3 border-start d-flex align-items-center">
-              <i class="me-1 icon-md" data-feather="users"></i>
-              <a class="pt-1px d-none d-md-block text-body" href="#">Friends <span class="text-muted tx-12">3,765</span></a>
-            </li>
-            <li class="ms-3 ps-3 border-start d-flex align-items-center">
-              <i class="me-1 icon-md" data-feather="image"></i>
-              <a class="pt-1px d-none d-md-block text-body" href="#">Photos</a>
-            </li>
-            <li class="ms-3 ps-3 border-start d-flex align-items-center">
-              <i class="me-1 icon-md" data-feather="video"></i>
-              <a class="pt-1px d-none d-md-block text-body" href="#">Videos</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> --}}
+
   <div class="row profile-body">
     <!-- left wrapper start -->
     <div class="d-none d-md-block col-md-4 col-xl-4 left-wrapper">
       <div class="card rounded">
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between mb-2">
-                <div class="d-flex align-items-center">
-                    <img class="img-xs rounded-circle" src="../../../assets/images/faces/face1.jpg" alt="">													
+            <div class="d-flex align-items-center">
+                <div class="mb-3">
+                    <img class="rounded-circle" src="{{(!$profile->photo)? url('assets/images/no-image.png') : url('assets/profile-photos/'.$profile->photo)}}" alt="" width="100" height="100">
+                </div>													
                 <div class="ms-2">
-                  <h5>{{$profile->name}}</h5>
+                    <h4 class="ml-3">{{$profile->name}}</h4>
                 </div>
-              </div>
+            </div>
           </div>
           <p class="mt-3">
             Hi! I'm Amiah the Senior UI Designer at NobleUI. We hope you enjoy the design and quality of Social.
@@ -94,29 +51,39 @@
             <div class="card">
                 <div class="card-body">
   
-                    <h6 class="card-title">Edit Profile</h6>
-                    <form class="forms-sample">
+                    <h6 class="card-title">Update Your Profile</h6>
+                    <form class="forms-sample" method="POST" action="{{route('admin.update-profile')}}" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
-                            <label for="exampleInputUsername1" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" autocomplete="off" placeholder="Username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" value="{{$profile->name}}" autocomplete="off">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off" placeholder="Password">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" value="{{$profile->username}}" class="form-control" id="username" autocomplete="off">
                         </div>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">
-                                Remember me
-                            </label>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" name="email" value="{{$profile->email}}" class="form-control" id="email">
                         </div>
-                        <button type="submit" class="btn btn-primary me-2">Submit</button>
-                        <button class="btn btn-secondary">Cancel</button>
-                    </form>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" name="phone" value="{{$profile->phone}}" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" name="address" value="{{$profile->address}}" class="form-control" id="address">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="formFile">Upload Profile Photo</label>
+                            <input class="form-control" name="photo" type="file" id="imageFile">
+                        </div>
+
+                        <div class="mb-3">
+                            <img class="rounded-circle" src="{{(!$profile->photo)? url('assets/images/no-image.png') : url('assets/profile-photos/'.$profile->photo)}}" id="showImage" alt="" width="80" height="80">
+                        </div>	
+                        <button type="submit" class="btn btn-primary me-2">Update</button>                    </form>
                 </div>
               </div>
           </div>
@@ -124,6 +91,18 @@
       </div>
     </div>
     <!-- middle wrapper end -->
-
   </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+
+          $("#imageFile").on('change', function(e){
+             const reader = new FileReader();
+             reader.onload = (e) => {
+                $('#showImage').attr('src', e.target.result);
+             }
+             reader.readAsDataURL(e.target.files[0]);
+          });
+      });
+  </script>
 @endsection
