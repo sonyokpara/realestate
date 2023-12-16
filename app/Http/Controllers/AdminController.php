@@ -71,6 +71,7 @@ class AdminController extends Controller
         $user->phone = $request->phone;
 
         if($request->file('photo')){
+            @unlink(public_path('assets/profile-photos/'.$user->photo));
             $file = $request->file('photo');
             $ext = $file->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
@@ -79,7 +80,11 @@ class AdminController extends Controller
         }
 
         $user->save();
+        $notification = array(
+            'message' => 'Profile successfully updated!',
+            'alert-type' => 'success'
+        );
 
-        return redirect()->route('admin.profile');
+        return redirect()->route('admin.profile')->with($notification);
     }
 }
