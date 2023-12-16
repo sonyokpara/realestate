@@ -53,7 +53,7 @@ class AdminController extends Controller
     public function profile(){
         $id = Auth::user()->id;
         $profile = User::find($id);
-
+        
         return view('admin.profile', compact('profile'));
     }
 }

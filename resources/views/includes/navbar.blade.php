@@ -44,7 +44,7 @@
                             <a href="pages/email/inbox.html" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="mail" class="icon-lg mb-1"></i><p class="tx-12">Email</p></a>
                         </div>
                         <div class="col-3 text-center">
-                            <a href="pages/general/profile.html" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="instagram" class="icon-lg mb-1"></i><p class="tx-12">Profile</p></a>
+                            <a href="{{route('admin.profile')}}" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="instagram" class="icon-lg mb-1"></i><p class="tx-12">Profile</p></a>
                         </div>
                     </div>
                     <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
@@ -202,8 +202,8 @@
                             <img class="wd-80 ht-80 rounded-circle" src="{{asset('../assets/images/faces/face1.jpg')}}" alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">Amiah Burton</p>
-                            <p class="tx-12 text-muted">amiahburton@gmail.com</p>
+                            <p class="tx-16 fw-bolder">{{$profile->name}}</p>
+                            <p class="tx-12 text-muted">{{$profile->email}}</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
