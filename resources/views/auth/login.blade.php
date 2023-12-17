@@ -47,110 +47,92 @@
 </x-guest-layout> --}}
 
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="NobleUI">
-	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    <meta charset="utf-8">
+    <title>Login - Real Estate</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-	<title>Admin - Login</title>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
-    <!-- End fonts -->
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-	<!-- core:css -->
-	<link rel="stylesheet" href="{{asset('../../../assets/vendors/core/core.css')}}">
-	<!-- endinject -->
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset('assets/property/css/bootstrap.min.css')}}" rel="stylesheet">
 
-	<!-- Plugin css for this page -->
-	<!-- End plugin css for this page -->
-
-	<!-- inject:css -->
-	<link rel="stylesheet" href="{{asset('../../../assets/fonts/feather-font/css/iconfont.css')}}">
-	<link rel="stylesheet" href="{{asset('../../../assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-	<!-- endinject -->
-
-    <!-- Layout styles -->  
-	<link rel="stylesheet" href="{{asset('../../../assets/css/demo2/style.min.css')}}">
-    <!-- End layout styles -->
-
-    <link rel="shortcut icon" href="{{asset('../../../assets/images/favicon.png')}}" />
+    <!-- Template Stylesheet -->
+    <link href="{{asset('assets/property/css/style.css')}}" rel="stylesheet">
 </head>
+
 <body>
-	<div class="main-wrapper">
-		<div class="page-wrapper full-page">
-			<div class="page-content d-flex align-items-center justify-content-center">
-
-				<div class="row w-100 mx-0 auth-page">
-					<div class="col-md-8 col-xl-6 mx-auto">
-						<div class="card">
-							<div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                    <div class="auth-side-wrapper">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-8 ps-md-0">
-                                    <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="#" class="noble-ui-logo logo-light d-block mb-2">Real<span>Estate</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                    
-                                        <form class="forms-sample" method="POST" action="{{route('admin.login')}}">
-                                            @csrf
-                                            <div class="mb-3">
-                                                <label for="userEmail" class="form-label">Email/Phone/Username</label>
-                                                <input type="text" class="form-control" id="login" placeholder="Email/Phone/Username" name="login">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="userPassword" autocomplete="current-password" name="password" placeholder="Password">
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input type="checkbox" class="form-check-input" name="remember" id="authCheck">
-                                                <label class="form-check-label" for="authCheck">
-                                                Remember me
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                                                Login 
-                                                </button>
-                                            </div>
-                                            <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign up</a>
-                                        </form>
-                                    </div>
-                                </div>
+    <div class="container-xxl bg-white p-0">
+        <!-- Contact Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="card col-md-6 offset-md-3">
+                        <div class="navbar-brand text-center pt-5">
+                            <div class="icon p-2 me-2">
+                                <img class="img-fluid" src="{{asset('assets/property/img/icon-deal.png')}}" alt="Icon" style="width: 40px; height: 40px;">
                             </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            <h1 class="m-1 text-primary">Login</h1>
+                        </div>
+                        <form method="POST" action="{{route('login')}}">
+                            @csrf
+                            <div class="card-body row g-3">
+                                <div class="col-md-12 mb-2">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="login" placeholder="Email/Phone/Username" name="login">
+                                        <label for="name">Email/Phone/Username</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 m-2 form-check ">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                                            <label for="remember" class="form-check-label">Remember me</label>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#" class="d-inline-block float-right">Forgot password</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
+                            </div>
+                        </form>
+                        <div class="text-center mb-2">
+                            <a href="{{('/')}}">Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+    </div>
 
-	<!-- core:js -->
-	<script src="{{asset('../../../assets/vendors/core/core.js')}}"></script>
-	<!-- endinject -->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Plugin js for this page -->
-	<!-- End plugin js for this page -->
-
-	<!-- inject:js -->
-	<script src="{{asset('../../../assets/vendors/feather-icons/feather.min.js')}}"></script>
-	<script src="{{asset('../../../assets/js/template.js')}}"></script>
-	<!-- endinject -->
-
-	<!-- Custom js for this page -->
-	<!-- End custom js for this page -->
-
+    <!-- Template Javascript -->
+    <script src="{{asset('assets/property/js/main.js')}}"></script>
 </body>
+
 </html>
-
-
