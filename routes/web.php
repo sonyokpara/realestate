@@ -38,7 +38,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::post('admin/profile', [AdminController::class, 'updateProfile'])->name('admin.update-profile');
-    Route::get('admin/change-password', [AdminController::class, 'changePassword'])->name('admin.chg-password');
+    Route::get('admin/change-password', [AdminController::class, 'changePasswordForm'])->name('admin.chg-password');
+    Route::post('admin/change-password', [AdminController::class, 'changePassword'])->name('admin.password');
 });
 
 Route::middleware(['auth', 'role:agent'])->group(function(){

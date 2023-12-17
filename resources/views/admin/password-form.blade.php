@@ -47,7 +47,7 @@
                 <div class="card-body">
   
                     <h6 class="card-title">Change Password</h6>
-                    <form class="forms-sample" method="POST" action="{{route('admin.chg-password')}}">
+                    <form class="forms-sample" method="POST" action="{{route('admin.password')}}">
                         @csrf
                         <div class="mb-3">
                             <label for="old_password" class="form-label">Old Password</label>
@@ -68,11 +68,11 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="password_confirmation" class="form-label">Confirm New Password</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="password_confirmation">
+                            <label for="new_password_confirmation" class="form-label">Confirm New Password</label>
+                            <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation">
                         </div>
                         
-                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <button type="submit" class="btn btn-primary me-2">Save Changes</button>
                     </form>
                 </div>
               </div>

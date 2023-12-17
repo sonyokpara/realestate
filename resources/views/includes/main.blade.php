@@ -84,8 +84,11 @@
 	<!-- End toastr js-->
 
 	<script type="text/javascript">
+
 		@if (Session::has('message'))
-			const type = "{{Session::get('alert-type', 'info')}}";
+
+			const type = "{{Session::get('alert-type')}}";
+
 			switch (type) {
 				case 'info':
 					toastr.info("{{Session::get('message')}}")
