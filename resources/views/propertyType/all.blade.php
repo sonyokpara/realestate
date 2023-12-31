@@ -34,8 +34,8 @@
                                 <td>{{$item->prop_name}}</td>
                                 <td>{{$item->prop_image}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-inverse-success">Edit</button>
-                                    <button type="button" class="btn btn-inverse-danger">Delete</button>
+                                    <a href="{{route('edit.type', $item->id)}}" class="btn btn-inverse-success">Edit</a>
+                                    <a class="btn btn-inverse-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

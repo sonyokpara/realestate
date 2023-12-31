@@ -7,7 +7,7 @@
         <h4>Add Propery Type</h4>
     </div>
     <div class="card-body mt-3">
-        <form method="POST" action="{{route('store.type')}}" enctype="multipart/form-data" class="forms-sample">
+        <form method="POST" action="{{route('store.type')}}" class="forms-sample">
             @csrf
             <div class="mb-3">
                 <label for="prop_name" class="form-label">Type Name</label>

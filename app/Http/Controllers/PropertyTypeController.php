@@ -35,4 +35,27 @@ class PropertyTypeController extends Controller
 
         return redirect()->route('all.type')->with($notification);
     } // End method
+
+    public function editType($id){
+
+        $type = PropertyType::findOrFail($id);
+        return view('propertyType.edit', compact('type'));
+
+    }// End method
+
+    public function updateType(Request $request){
+
+        PropertyType::findOrFail($request->id)->update([
+            'prop_name' => $request->prop_name,
+            'prop_image' => $request->prop_image
+        ]);
+
+        $notification = array(
+            'message' => 'Property Type Updated!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.type')->with($notification);
+
+    }// End method
 }
