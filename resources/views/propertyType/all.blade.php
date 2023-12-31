@@ -14,14 +14,9 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-10">
-                        <h6 class="card-title">Property Types List</h6>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-success p-3 mb-3 float-right"><i class="fa fa-plus"></i></button>
-                    </div>
-                </div>  
+
+                <a href="{{route('add.type.form')}}" class="btn btn-inverse-info p-3 mb-5" >Add Property Type</a>
+
                 <div class="table-responsive">
                     <table id="dataTableExample" class="table">
                         <thead>

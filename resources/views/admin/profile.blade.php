@@ -80,7 +80,8 @@
                         <div class="mb-3">
                             <img class="rounded-circle" src="{{(!$profile->photo)? url('assets/images/no-image.png') : url('assets/profile-photos/'.$profile->photo)}}" id="showImage" alt="" width="80" height="80">
                         </div>	
-                        <button type="submit" class="btn btn-primary me-2">Update</button>                    </form>
+                        <button type="submit" class="btn btn-primary me-2">Update</button>                    
+                    </form>
                 </div>
               </div>
           </div>

@@ -86,11 +86,21 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label>Email/Phone/Username</label>
-                                                <input type="text" name="login" required="">
+                                                <input type="text" name="login" required class="form-control @error('login') is-invalid @enderror">
+                                                @error('login')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="password" name="password" required="">
+                                                <input 
+                                                    type="password" 
+                                                    name="password" 
+                                                    class="form-control @error('password') is-invalid @enderror" 
+                                                    required>
+                                                    @error('password')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                             </div>
                                             <div class="form-group message-btn">
                                                 <button type="submit" class="theme-btn btn-one">Sign in</button>

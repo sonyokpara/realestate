@@ -31,10 +31,7 @@
                 <a href="{{route('all.type')}}" class="nav-link">All Type</a>
                 </li>
                 <li class="nav-item">
-                <a href="{{asset('pages/email/read.html')}}" class="nav-link">Add Type</a>
-                </li>
-                <li class="nav-item">
-                <a href="{{asset('pages/email/compose.html')}}" class="nav-link">Compose</a>
+                <a href="{{route('add.type.form')}}" class="nav-link">Add Type</a>
                 </li>
             </ul>
             </div>

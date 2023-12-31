@@ -12,6 +12,3 @@
 <script src="{{asset('assets/frontend-assets/js/jQuery.style.switcher.min.js')}}"></script>
 <script src="{{asset('assets/frontend-assets/js/jquery-ui.js')}}"></script>
 <script src="{{asset('assets/frontend-assets/js/nav-tool.js')}}"></script>
-
-<!-- main-js -->
-<script src="{{asset('assets/frontend-assets/js/script.js')}}"></script>

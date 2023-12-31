@@ -32,10 +32,10 @@ class AdminController extends Controller
 
         $url = 'admin/dashboard';
         
-        $notification = array([
+        $notification = array(
             'message' => 'Log in successful!',
             'alert-type' => 'success'
-        ]);
+        );
 
         return redirect()->intended($url)->with($notification);
     }
@@ -49,8 +49,13 @@ class AdminController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+        
+        $notification = array(
+            'message' => 'Logout successful!',
+            'alert-type' => 'success'
+        );
 
-        return redirect('/admin/login');
+        return redirect('/admin/login')->with($notification);
     }
 
     /**
@@ -122,10 +127,10 @@ class AdminController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
 
-        $notification = array([
+        $notification = array(
             'message' => 'Password changed successful!',
             'alert-type' => 'success'
-        ]);
+        );
 
         return back()->with($notification);
     }
