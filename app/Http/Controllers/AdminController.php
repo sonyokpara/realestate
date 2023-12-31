@@ -31,8 +31,13 @@ class AdminController extends Controller
         $request->session()->regenerate();
 
         $url = 'admin/dashboard';
+        
+        $notification = array([
+            'message' => 'Log in successful!',
+            'alert-type' => 'success'
+        ]);
 
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);
     }
 
     /**
@@ -81,6 +86,7 @@ class AdminController extends Controller
         }
 
         $user->save();
+
         $notification = array(
             'message' => 'Profile successfully updated!',
             'alert-type' => 'success'
