@@ -30,12 +30,12 @@
                         <tbody>
                             @foreach ($types as $key => $item)
                             <tr>
-                                <td>{{$key}}</td>
+                                <td>{{$key+1}}</td>
                                 <td>{{$item->prop_name}}</td>
                                 <td>{{$item->prop_image}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button type="button" class="btn btn-inverse-success">Edit</button>
+                                    <button type="button" class="btn btn-inverse-danger">Delete</button>
                                 </td>
                             </tr>
                             @endforeach

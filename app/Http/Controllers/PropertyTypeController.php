@@ -14,12 +14,25 @@ class PropertyTypeController extends Controller
 
     public function addTypeForm(){
         return view('propertyType.add_type');
-    }
+    }// End method
 
-    public function addType(Request $request){
+    public function storeType(Request $request){
 
         $request->validate([
-            
+            'prop_name' => 'required|unique:property_types|max:200',
+            'prop_image' => 'required'
         ]);
-    }
+
+        PropertyType::insert([
+            'prop_name' => $request->prop_name,
+            'prop_image' => $request->prop_image
+        ]);
+
+        $notification = array(
+            'message' => 'Property Type Added!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.type')->with($notification);
+    } // End method
 }
