@@ -20,20 +20,38 @@
         </li>
         <li class="nav-item nav-category">Property</li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
-            <i class="link-icon" data-feather="mail"></i>
-            <span class="link-title">Property Types</span>
-            <i class="link-arrow" data-feather="chevron-down"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false" aria-controls="property">
+                <i class="link-icon" data-feather="mail"></i>
+                <span class="link-title">Property Types</span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="emails">
-            <ul class="nav sub-menu">
-                <li class="nav-item">
-                <a href="{{route('all.type')}}" class="nav-link">All Type</a>
-                </li>
-                <li class="nav-item">
-                <a href="{{route('add.type.form')}}" class="nav-link">Add Type</a>
-                </li>
-            </ul>
+            <div class="collapse" id="property">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                    <a href="{{route('all.type')}}" class="nav-link">All Type</a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{route('add.type.form')}}" class="nav-link">Add Type</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item nav-category">Amenity</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#amenity" role="button" aria-expanded="false" aria-controls="amenity">
+                <i class="link-icon" data-feather="mail"></i>
+                <span class="link-title">Amenity</span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="amenity">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                    <a href="{{route('all.amenities')}}" class="nav-link">All Amenities</a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{{route('add.amenity')}}" class="nav-link">Add Amenity</a>
+                    </li>
+                </ul>
             </div>
         </li>
         <li class="nav-item">

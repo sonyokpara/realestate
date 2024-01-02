@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
+use App\Models\Amenity;
 
 class PropertyTypeController extends Controller
 {
@@ -57,9 +58,36 @@ class PropertyTypeController extends Controller
 
         return redirect()->route('all.type')->with($notification);
 
-    }// End method
+    } // End method
 
     public function deleteType($id){
 
+    } // End method
+
+    public function allAmenities(){
+        $amenities = Amenity::latest()->get();
+        return view('amenities.all', compact('amenities'));
+    } // End method
+
+    public function addAmenity(){
+        return view('amenities.add_amenity');
     }// End method
+
+    public function storeAmenity(Request $request){
+
+        $request->validate([
+            'amenity_name' => 'required|unique:amenities'
+        ]);
+
+        Amenity::insert([
+            'amenity_name' => $request->amenity_name
+        ]);
+
+        $notification = array(
+            'message' => 'Amenity added successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.amenities')->with($notification);
+    }
 }
