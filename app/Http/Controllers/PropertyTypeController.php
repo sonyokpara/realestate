@@ -58,4 +58,8 @@ class PropertyTypeController extends Controller
         return redirect()->route('all.type')->with($notification);
 
     }// End method
+
+    public function deleteType($id){
+
+    }// End method
 }
