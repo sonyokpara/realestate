@@ -63,5 +63,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/amenity/all', 'allAmenities')->name('all.amenities');
         Route::get('/amenity/add', 'addAmenity')->name('add.amenity');
         Route::post('/amenity/add', 'storeAmenity')->name('store.amenity');
+        Route::get('/amenity/edit/{id}', 'editAmenity')->name('edit.amenity');
+        Route::post('/amenity/update', 'updateAmenity')->name('update.amenity');
     });
 });

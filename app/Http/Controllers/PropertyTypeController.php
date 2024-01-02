@@ -90,4 +90,23 @@ class PropertyTypeController extends Controller
 
         return redirect()->route('all.amenities')->with($notification);
     }
+
+    public function editAmenity($id){
+        $amenity = Amenity::findOrFail($id);
+        return view('amenities.edit_amenity', compact('amenity'));
+    }
+
+    public function updateAmenity(Request $request){
+
+        Amenity::findOrFail($request->id)->update([
+            'amenity_name' => $request->amenity_name
+        ]);
+
+        $notification = array(
+            'message' => 'Amenity update successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.amenities')->with($notification);
+    }
 }
