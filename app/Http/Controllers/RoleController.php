@@ -45,7 +45,7 @@ class RoleController extends Controller
 
     public function updatePermission(Request $request){
 
-        Permission::findorFail($request->id)->update();
+        Permission::findorFail($request->id)->update($request->all());
 
         $notification = array(
             'message' => 'Permission updated successfully!',
