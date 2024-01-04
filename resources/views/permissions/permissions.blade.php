@@ -27,8 +27,8 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->group_name}}</td>
                                 <td>
-                                    <a href="{{route('edit.amenity', $item->id)}}" class="btn btn-inverse-success">Edit</a>
-                                    <a href="{{route('delete.type', $item->id)}}" class="btn btn-inverse-danger delete" onclick="showSwal('passing-parameter-execute-cancel')">Delete</a>
+                                    <a href="{{route('edit.permission', $item->id)}}" class="btn btn-inverse-success">Edit</a>
+                                    <a href="{{route('delete.permission', $item->id)}}" class="btn btn-inverse-danger " id="delete">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -39,4 +39,30 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-js')
+<script type="text/javascript">
+    $(function(){
+        $(document).on('click', '#delete', function(e){
+            
+            e.preventDefault();
+            const page = $(this).attr('href');
+    
+            Swal.fire({
+                title: 'Delete Permission',
+                text: 'Do you want to delete this permission?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete!'
+            }).then((result)=>{
+                if(result.value){
+                    window.location.href = page
+                }
+            });
+        });
+    });
+</script>
 @endsection

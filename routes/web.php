@@ -74,5 +74,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/permissions/all', 'allPermissions')->name('all.permissions');
         Route::get('/permissions/add', 'addPermission')->name('add.permission');
         Route::post('/permissions/add', 'storePermission')->name('store.permission');
+        Route::get('/permissions/edit/{id}', 'editPermissions')->name('edit.permission');
+        Route::post('/permissions/update', 'updatePermission')->name('update.permission');
+        Route::get('/permissions/delete/{id}', 'deletePermission')->name('delete.permission');
+
     });
 });
