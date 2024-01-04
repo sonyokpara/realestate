@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\PropertyTypeController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,5 +66,13 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('/amenity/add', 'storeAmenity')->name('store.amenity');
         Route::get('/amenity/edit/{id}', 'editAmenity')->name('edit.amenity');
         Route::post('/amenity/update', 'updateAmenity')->name('update.amenity');
+    });
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    Route::controller(RoleController::class)->group(function(){
+        Route::get('/permissions/all', 'allPermissions')->name('all.permissions');
+        Route::get('/permissions/add', 'addPermission')->name('add.permission');
+        Route::post('/permissions/add', 'storePermission')->name('store.permission');
     });
 });
