@@ -62,6 +62,14 @@ class PropertyTypeController extends Controller
 
     public function deleteType($id){
 
+        PropertyType::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Property Type deleted successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     } // End method
 
     public function allAmenities(){

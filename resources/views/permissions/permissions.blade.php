@@ -8,7 +8,9 @@
         <div class="card">
             <div class="card-body">
 
-                <a href="{{route('add.permission')}}" class="btn btn-inverse-info p-3 mb-5" >Add Permission</a>
+                <a href="{{route('add.permission')}}" class="btn btn-inverse-info p-2 mb-5 me-2" >Add Permission</a>
+                <a href="{{route('import.permission')}}" class="btn btn-inverse-warning p-2 mb-5 me-2" >Import</a>
+                <a href="{{route('export.permission')}}" class="btn btn-inverse-success p-2 mb-5">Export</a>
 
                 <div class="table-responsive">
                     <table id="dataTableExample" class="table">

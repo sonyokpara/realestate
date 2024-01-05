@@ -35,7 +35,7 @@
                                 <td>{{$item->prop_image}}</td>
                                 <td>
                                     <a href="{{route('edit.type', $item->id)}}" class="btn btn-inverse-success">Edit</a>
-                                    <a href="{{route('delete.type', $item->id)}}" class="btn btn-inverse-danger delete" onclick="showSwal('passing-parameter-execute-cancel')">Delete</a>
+                                    <a href="{{route('delete.type', $item->id)}}" class="btn btn-inverse-danger" id="delete">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -46,4 +46,36 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-js')
+<script type="text/javascript">
+    $(function(){
+        $(document).on('click', '#delete', function(e){
+            
+            e.preventDefault();
+            const page = $(this).attr('href');
+    
+            Swal.fire({
+                title: 'Delete Property Type',
+                text: 'Do you want to delete this property type?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete!'
+            }).then((result)=>{
+                if(result.value){
+
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Property type has been deleted.",
+                        icon: "success"
+                    });
+                    window.location.href = page
+                }
+            });
+        });
+    });
+</script>
 @endsection
