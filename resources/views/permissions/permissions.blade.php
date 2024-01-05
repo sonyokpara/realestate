@@ -59,6 +59,12 @@
                 confirmButtonText: 'Yes, delete!'
             }).then((result)=>{
                 if(result.value){
+
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Permission has been deleted.",
+                        icon: "success"
+                    });
                     window.location.href = page
                 }
             });
