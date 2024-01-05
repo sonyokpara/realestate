@@ -45,7 +45,12 @@ class AuthenticatedSessionController extends Controller
 
         }
 
-        return redirect()->intended($url);
+        $notification = array(
+            'message' => ucfirst($request->user()->role).' logged in successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->intended($url)->with($notification);
     }
 
     /**

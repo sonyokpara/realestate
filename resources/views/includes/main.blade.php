@@ -50,13 +50,13 @@
 <body>
 	<div class="main-wrapper">
 		<!-- partial:partials/_sidebar.html -->
-		@include('includes/sidebar')
+		@include('includes.sidebar')
 		<!-- partial -->
 	
 		<div class="page-wrapper">
 					
 			<!-- partial:partials/_navbar.html -->
-			@include('includes/navbar')
+			@include('includes.navbar')
 			<!-- partial -->
 
 			<div class="page-content">
@@ -64,7 +64,7 @@
 			</div>
 
 			<!-- partial:partials/_footer.html -->
-			@include('includes/footer')
+			@include('includes.footer')
 			<!-- partial -->
 		
 		</div>
@@ -116,19 +116,20 @@
 		@if(Session::has('message'))
 
 			const type = "{{Session::get('alert-type')}}";
+			const message = "{{Session::get('message')}}";
 
 			switch (type) {
 				case 'info':
-					toastr.info("{{Session::get('message')}}")
+					toastr.info(message)
 					break;
 				case 'success':
-					toastr.success("{{Session::get('message')}}")
+					toastr.success(message)
 					break;
 				case 'warning':
-					toastr.warning("{{Session::get('message')}}")
+					toastr.warning(message)
 					break;
 				case 'error':
-					toastr.error("{{Session::get('message')}}")
+					toastr.error(message)
 					break;
 			}
 		@endif
