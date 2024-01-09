@@ -37,15 +37,21 @@
                             </label>
                         </div>
                     </div>
+                    @php
+                        $permissions = App\Models\User::get_permission_by_group_name($group->group_name)
+                    @endphp
                     <div class="col-9">
-                        <div class="form-check mb-2">
-                            <input type="checkbox" class="form-check-input" id="">
-                            <label class="form-check-label" for="">
-                                All Permission
-                            </label>
-                        </div>
+                        @foreach ($permissions as $permission)
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input" id="checkDefault{{$permission->id}}">
+                                <label class="form-check-label" for="checkDefault{{$permission->id}}">
+                                    {{$permission->name}}
+                                </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+                <br>
             @endforeach
             <button type="submit" class="btn btn-success px-3">Save Changes</button>
         </form>
