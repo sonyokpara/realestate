@@ -32,7 +32,8 @@ class RoleController extends Controller
 
         Permission::insert([
             'name' => $request->name,
-            'group_name' => $request->group_name
+            'group_name' => $request->group_name,
+            'guard_name' => config('auth.defaults.guard')
         ]);
 
         $notification = array(
@@ -102,5 +103,24 @@ class RoleController extends Controller
         return view('roles.add_role');
     }
 
+    // Save Roles
+    public function storeRole(Request $request){
+        
+        $request->validate([
+            'name' => 'required|unique:roles'
+        ]);
+
+        Role::insert([
+            'name' => $request->name,
+            'guard_name' => config('auth.defaults.guard')
+        ]);
+
+        $notification = array(
+            'message' => 'Role added successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.roles')->with($notification);
+    }
 
 }
