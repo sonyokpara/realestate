@@ -87,9 +87,17 @@ class RoleController extends Controller
         );
 
         return redirect()->back()->with($notification);
-    }
+    } // End Method
 
     public function exportPermission(){
         return Excel::download(new PermissionExport, 'permissions.xlsx');
+    } // End Method
+
+    public function allRoles(){
+        return view('roles.all_roles');
+    }
+
+    public function addRoles(){
+        
     }
 }

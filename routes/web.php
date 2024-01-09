@@ -71,6 +71,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
 Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(RoleController::class)->group(function(){
+
+        // Permission Routes
         Route::get('/permissions/all', 'allPermissions')->name('all.permissions');
         Route::get('/permissions/add', 'addPermission')->name('add.permission');
         Route::post('/permissions/add', 'storePermission')->name('store.permission');
@@ -78,6 +80,15 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('/permissions/update', 'updatePermission')->name('update.permission');
         Route::get('/permissions/delete/{id}', 'deletePermission')->name('delete.permission');
 
+        // Role Routes
+        Route::get('/roles/all', 'allRoles')->name('all.roles');
+        Route::get('/roles/add', 'addRoles')->name('add.roles');
+        Route::post('/permissions/add', 'storePermission')->name('store.permission');
+        Route::get('/permissions/edit/{id}', 'editPermissions')->name('edit.permission');
+        Route::post('/permissions/update', 'updatePermission')->name('update.permission');
+        Route::get('/permissions/delete/{id}', 'deletePermission')->name('delete.permission');
+        
+        // Laravel Excel Package Routes
         Route::get('/import/permissions', 'importPermissionForm')->name('import.permission');
         Route::post('/import/permissions', 'importPermission')->name('import.permission');
         Route::get('/export/permissions', 'exportPermission')->name('export.permission');
