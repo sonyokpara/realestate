@@ -99,7 +99,7 @@ class RoleController extends Controller
     }
 
     public function addRoles(){
-        
+        return view('roles.add_role');
     }
 
 
