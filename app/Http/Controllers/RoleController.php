@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Exports\PermissionExport;
+use App\Imports\PermissionImport;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Maatwebsite\Excel\Facades\Excel;
+
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -68,11 +73,23 @@ class RoleController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function importPermission(){
+    public function importPermissionForm(){
         return view('permissions.import');
     }
 
+    public function importPermission(Request $request){
+        
+        Excel::import(new PermissionImport, $request->file('perm_file'));
+
+        $notification = array(
+            'message' => 'Permission imported successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
     public function exportPermission(){
-        // return view('permissions.import');
+        return Excel::download(new PermissionExport, 'permissions.xlsx');
     }
 }

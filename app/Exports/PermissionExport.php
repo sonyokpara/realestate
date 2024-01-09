@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Permission;
+use Spatie\Permission\Models\Permission;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class PermissionExport implements FromCollection
@@ -12,6 +12,6 @@ class PermissionExport implements FromCollection
     */
     public function collection()
     {
-        return Permission::all();
+        return Permission::select('name', 'group_name')->get();
     }
 }
