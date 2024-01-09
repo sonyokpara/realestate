@@ -7,6 +7,7 @@ use App\Imports\PermissionImport;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -150,13 +151,21 @@ class RoleController extends Controller
     public function deleteRole($id){
 
         Role::findorFail($id)->delete();
-        
+
         $notification = array(
             'message' => 'Role deleted successfully!',
             'alert-type' => 'success'
         );
 
         return redirect()->back()->with($notification);
-    }
+    }// End Method
+
+    public function addPermissionsToRole(){
+        $roles = Role::all();
+        $permissions = Permission::all();
+        $permission_groups = User::get_permissions_group();
+
+        return view('rolesetup.setup', compact('roles', 'permissions', 'permission_groups'));
+    }// End Method
 
 }
