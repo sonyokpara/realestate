@@ -25,7 +25,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>
                                     <a href="{{route('edit.role', $item->id)}}" class="btn btn-inverse-success">Edit</a>
-                                    <a href="{{route('delete.permission', $item->id)}}" class="btn btn-inverse-danger " id="delete">Delete</a>
+                                    <a href="{{route('delete.role', $item->id)}}" class="btn btn-inverse-danger " id="delete">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -47,8 +47,8 @@
             const page = $(this).attr('href');
     
             Swal.fire({
-                title: 'Delete Permission',
-                text: 'Do you want to delete this permission?',
+                title: 'Delete Role',
+                text: 'Do you want to delete this role?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -59,7 +59,7 @@
 
                     Swal.fire({
                         title: "Deleted!",
-                        text: "Permission has been deleted.",
+                        text: "Role has been deleted.",
                         icon: "success"
                     });
                     window.location.href = page

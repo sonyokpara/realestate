@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Permission;
 use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class RoleController extends Controller
 {
@@ -145,5 +146,17 @@ class RoleController extends Controller
         return redirect()->route('all.roles')->with($notification);
         
     }// End Method
+
+    public function deleteRole($id){
+
+        Role::findorFail($id)->delete();
+        
+        $notification = array(
+            'message' => 'Role deleted successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 
 }

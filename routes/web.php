@@ -86,7 +86,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('/roles/add', 'storeRole')->name('store.role');
         Route::get('/roles/edit/{id}', 'editRole')->name('edit.role');
         Route::post('/roles/update', 'updateRole')->name('update.role');
-        Route::get('/permissions/delete/{id}', 'deletePermission')->name('delete.permission');
+        Route::get('/roles/delete/{id}', 'deleteRole')->name('delete.role');
         
         // Laravel Excel Package Routes
         Route::get('/import/permissions', 'importPermissionForm')->name('import.permission');
