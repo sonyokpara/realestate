@@ -123,4 +123,9 @@ class RoleController extends Controller
         return redirect()->route('all.roles')->with($notification);
     }
 
+    public function editRole($id){
+        $role = Role::findOrFail($id);
+        return view('roles.edit', compact('role'));
+    }
+
 }
