@@ -83,7 +83,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         // Role Routes
         Route::get('/roles/all', 'allRoles')->name('all.roles');
         Route::get('/roles/add', 'addRoles')->name('add.role');
-        Route::post('/permissions/add', 'storePermission')->name('store.permission');
+        Route::post('/roles/add', 'storeRole')->name('store.role');
         Route::get('/permissions/edit/{id}', 'editPermissions')->name('edit.permission');
         Route::post('/permissions/update', 'updatePermission')->name('update.permission');
         Route::get('/permissions/delete/{id}', 'deletePermission')->name('delete.permission');

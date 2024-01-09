@@ -1,5 +1,5 @@
 @extends('includes.main')
-@section('title', 'Add Type')
+@section('title', 'Add Permission')
 
 @section('content')
 <div class="card">
