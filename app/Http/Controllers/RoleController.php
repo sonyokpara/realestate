@@ -94,10 +94,11 @@ class RoleController extends Controller
     } // End Method
 
     public function allRoles(){
-        return view('roles.all_roles');
+        $roles = Role::all();
+        return view('roles.all_roles', compact('roles'));
     }
 
     public function addRoles(){
-        
+
     }
 }

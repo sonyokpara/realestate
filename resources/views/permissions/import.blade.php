@@ -9,7 +9,7 @@
 
     <div class="card-body mt-2">
         <a href="{{route('export.permission')}}" class="btn btn-inverse-warning p-3 mb-3" >Download Permissions</a>
-        <form method="POST" action="{{route('import.permission')}}" class="forms-sample" enctype="multipart/form-data">
+        <form method="POST" action="{{route('import')}}" class="forms-sample" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="prop_name" class="form-label">Excel File</label>

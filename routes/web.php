@@ -82,7 +82,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
         // Role Routes
         Route::get('/roles/all', 'allRoles')->name('all.roles');
-        Route::get('/roles/add', 'addRoles')->name('add.roles');
+        Route::get('/roles/add', 'addRoles')->name('add.role');
         Route::post('/permissions/add', 'storePermission')->name('store.permission');
         Route::get('/permissions/edit/{id}', 'editPermissions')->name('edit.permission');
         Route::post('/permissions/update', 'updatePermission')->name('update.permission');
@@ -90,7 +90,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         
         // Laravel Excel Package Routes
         Route::get('/import/permissions', 'importPermissionForm')->name('import.permission');
-        Route::post('/import/permissions', 'importPermission')->name('import.permission');
+        Route::post('/import/permissions', 'importPermission')->name('import');
         Route::get('/export/permissions', 'exportPermission')->name('export.permission');
 
     });
